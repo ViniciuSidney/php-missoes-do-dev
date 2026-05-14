@@ -2,18 +2,36 @@
 
 Uma aplicação web gamificada criada para treinar fundamentos de PHP de forma prática, descontraída e progressiva.
 
-## Objetivo
+## 🎯 Objetivo
 
 O projeto permite cadastrar missões de estudo, concluir tarefas, ganhar XP e acompanhar a evolução por níveis.
 
-## Tecnologias
+A ideia é aprender PHP construindo uma aplicação simples, organizada e evolutiva.
+
+## 🛠️ Tecnologias
 
 - PHP
 - HTML
 - CSS
 - JSON
 
-## Roadmap
+## 📁 Estrutura inicial
+
+```txt
+php-missoes-do-dev/
+├── assets/
+│   └── css/
+│       └── style.css
+├── data/
+│   └── missions.json
+├── docs/
+│   └── ROADMAP.md
+├── index.php
+├── CHANGELOG.md
+└── README.md
+```
+
+## 🗺️ Roadmap
 
 - v0.1: Protótipo visual
 - v0.2: Listagem com arrays em PHP
@@ -24,3 +42,9 @@ O projeto permite cadastrar missões de estudo, concluir tarefas, ganhar XP e ac
 - v0.7: Sistema de níveis
 - v0.8: Melhorias de UX
 - v1.0: Primeira versão completa
+
+## 📌 Status
+
+Projeto em desenvolvimento.
+
+Versão atual: v0.1.0
