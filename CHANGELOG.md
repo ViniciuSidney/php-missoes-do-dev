@@ -6,7 +6,7 @@ O formato segue uma organização simples por versões.
 
 ---
 
-## [v0.1.0] — Estrutura inicial
+## [v0.1.0] — Estrutura inicial e interface estática
 
 ### Adicionado
 
@@ -17,7 +17,11 @@ O formato segue uma organização simples por versões.
 - Arquivo `README.md`
 - Arquivo `CHANGELOG.md`
 - Arquivo `docs/ROADMAP.md`
-- Planejamento inicial do projeto por versões
+- Interface inicial estática
+- Cards visuais de missões
+- Painel visual de XP e nível
+- Barra visual de progresso
+- Layout responsivo básico
 
 ### Em desenvolvimento
 

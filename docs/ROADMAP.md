@@ -10,16 +10,16 @@ Criar a base inicial do projeto, com arquivos, pastas, documentação e uma prim
 
 ### Etapas
 
-- [ ] Criar estrutura de pastas
-- [ ] Criar `index.php`
-- [ ] Criar `assets/css/style.css`
-- [ ] Criar `data/missions.json`
-- [ ] Criar `README.md`
-- [ ] Criar `CHANGELOG.md`
-- [ ] Criar `docs/ROADMAP.md`
-- [ ] Montar primeira tela estática
-- [ ] Criar cards visuais de missões
-- [ ] Criar painel visual de XP e nível
+- [x] Criar estrutura de pastas
+- [x] Criar `index.php`
+- [x] Criar `assets/css/style.css`
+- [x] Criar `data/missions.json`
+- [x] Criar `README.md`
+- [x] Criar `CHANGELOG.md`
+- [x] Criar `docs/ROADMAP.md`
+- [x] Montar primeira tela estática
+- [x] Criar cards visuais de missões
+- [x] Criar painel visual de XP e nível
 
 ### Resultado esperado
 
