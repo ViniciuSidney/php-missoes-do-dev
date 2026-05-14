@@ -14,11 +14,13 @@ O formato segue uma organização simples por versões.
 - Recebimento de dados com `POST`
 - Validação básica dos campos
 - Definição automática de XP por dificuldade
-- Exibição temporária da nova missão na lista
+- Mensagens de sucesso e erro
+- Exibição temporária da nova missão cadastrada
 
 ### Observação
 
 - As missões cadastradas ainda não são salvas após recarregar a página.
+- A persistência será implementada futuramente com arquivo JSON.
 
 ---
 

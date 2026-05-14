@@ -27,7 +27,7 @@ Uma página inicial estática, organizada e pronta para receber lógica PHP nas 
 
 ---
 
-## 🔜 v0.2.0 — Listagem com PHP e arrays
+## ✅ v0.2.0 — Listagem com PHP e arrays
 
 ### Objetivo
 
@@ -49,7 +49,7 @@ A tela passa a usar PHP para gerar os dados das missões.
 
 ---
 
-## 🔜 v0.3.0 — Cadastro com formulário
+## ✅ v0.3.0 — Cadastro com formulário
 
 ### Objetivo
 
@@ -61,11 +61,17 @@ Permitir que o usuário cadastre missões pela interface.
 - [x] Receber dados com `POST`
 - [x] Validar campos básicos
 - [x] Definir XP com base na dificuldade
+- [x] Adicionar missão temporariamente ao array
+- [x] Exibir mensagem de sucesso ou erro
 - [x] Exibir missão cadastrada temporariamente
 
 ### Resultado esperado
 
-O usuário consegue enviar dados por formulário usando PHP.
+O usuário consegue cadastrar uma missão pela interface, e ela aparece na lista enquanto a página não for recarregada.
+
+### Observação
+
+Nesta versão, os dados ainda não são persistentes. Ao recarregar a página, a missão cadastrada temporariamente desaparece. A persistência será implementada na v0.4.0 com JSON.
 
 ---
 
