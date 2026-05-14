@@ -6,6 +6,27 @@ O formato segue uma organização simples por versões.
 
 ---
 
+## [v0.4.0] — Persistência com JSON
+
+### Adicionado
+
+- Carregamento de missões a partir do arquivo `data/missions.json`
+- Salvamento de novas missões no arquivo JSON
+- Persistência dos dados após recarregar a página
+- Redirecionamento após cadastro usando o padrão `POST → Redirect → GET`
+
+### Corrigido
+
+- Evitada a duplicação de missões ao recarregar a página após o envio do formulário
+
+### Melhorado
+
+- Remoção do array fixo de missões do `index.php`
+- Separação inicial entre dados e lógica da interface
+- Fluxo de cadastro mais seguro e previsível
+
+---
+
 ## [v0.3.0] — Cadastro temporário de missões
 
 ### Adicionado

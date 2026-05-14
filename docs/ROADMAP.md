@@ -75,22 +75,30 @@ Nesta versão, os dados ainda não são persistentes. Ao recarregar a página, a
 
 ---
 
-## 🔜 v0.4.0 — Persistência com JSON
+## ✅ v0.4.0 — Persistência com JSON
 
 ### Objetivo
 
-Salvar as missões em um arquivo JSON.
+Salvar as missões em um arquivo JSON para manter os dados após recarregar a página.
 
 ### Etapas
 
-- [ ] Ler dados de `data/missions.json`
-- [ ] Converter JSON em array PHP
-- [ ] Salvar novas missões no JSON
-- [ ] Manter dados após recarregar a página
+- [x] Criar arquivo `data/missions.json`
+- [x] Ler dados de `data/missions.json`
+- [x] Converter JSON em array PHP
+- [x] Salvar novas missões no JSON
+- [x] Manter dados após recarregar a página
+- [x] Remover o array fixo de missões do `index.php`
+- [x] Implementar redirecionamento após cadastro
+- [x] Evitar duplicação de missões ao recarregar a página
 
 ### Resultado esperado
 
-As missões passam a ficar salvas de forma persistente.
+As missões passam a ficar salvas de forma persistente no arquivo `data/missions.json`, continuando disponíveis mesmo após recarregar a página.
+
+### Observação
+
+Foi aplicado o padrão `POST → Redirect → GET` para evitar que o formulário seja reenviado ao atualizar a página depois de cadastrar uma missão.
 
 ---
 
