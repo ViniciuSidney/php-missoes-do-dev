@@ -6,6 +6,23 @@ O formato segue uma organização simples por versões.
 
 ---
 
+## [v0.2.0] — Listagem com PHP e arrays
+
+### Adicionado
+
+- Array inicial de missões
+- Listagem dinâmica de missões com `foreach`
+- Cálculo automático de total de missões
+- Cálculo automático de missões concluídas
+- Cálculo automático de XP acumulado
+- Cálculo simples de nível e progresso
+
+### Melhorado
+
+- Exibição dos dados protegida com `htmlspecialchars`
+
+---
+
 ## [v0.1.0] — Estrutura inicial e interface estática
 
 ### Adicionado
@@ -23,7 +40,7 @@ O formato segue uma organização simples por versões.
 - Barra visual de progresso
 - Layout responsivo básico
 
-### Em desenvolvimento
+### Concluído
 
 - Protótipo visual da página inicial
 - Cards estáticos de missões

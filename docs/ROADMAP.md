@@ -35,12 +35,13 @@ Substituir missões escritas manualmente por uma listagem gerada com PHP.
 
 ### Etapas
 
-- [ ] Criar array de missões
-- [ ] Listar missões usando `foreach`
-- [ ] Exibir status da missão
-- [ ] Exibir dificuldade
-- [ ] Exibir XP
-- [ ] Calcular estatísticas básicas
+- [x] Criar array de missões
+- [x] Listar missões usando `foreach`
+- [x] Exibir status da missão
+- [x] Exibir dificuldade
+- [x] Exibir XP
+- [x] Calcular estatísticas básicas
+- [x] Proteger exibição dos dados no HTML
 
 ### Resultado esperado
 
