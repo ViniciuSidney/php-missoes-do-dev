@@ -11,15 +11,18 @@
   --text: #f9fafb;
   --muted: #9ca3af;
   --primary: #38bdf8;
+  --primary-hover: #7dd3fc;
   --primary-dark: #0284c7;
   --success: #22c55e;
   --border: rgba(255, 255, 255, 0.08);
+  --shadow: rgba(0, 0, 0, 0.25);
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 30%),
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32%),
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 28%),
     var(--background);
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
@@ -40,61 +43,99 @@ button {
   margin-bottom: 32px;
 }
 
-.eyebrow {
+.hero-badge,
+.section-badge {
+  display: inline-flex;
+  width: fit-content;
   color: var(--primary);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .hero h1 {
-  margin-top: 8px;
-  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  margin-top: 10px;
+  font-size: clamp(2.4rem, 8vw, 4.8rem);
   line-height: 1;
 }
 
-.hero-description {
+.hero p {
   max-width: 640px;
   margin-top: 16px;
   color: var(--muted);
   font-size: 1.05rem;
 }
 
-.stats-grid {
+.dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
-.stat-card,
+.dashboard-card,
+.progress-section,
 .mission-card {
   border: 1px solid var(--border);
   background: rgba(17, 24, 39, 0.82);
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  border-radius: 22px;
+  box-shadow: 0 20px 50px var(--shadow);
+  backdrop-filter: blur(12px);
 }
 
-.stat-card {
+.dashboard-card {
   padding: 22px;
 }
 
-.stat-label {
+.dashboard-card span {
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.stat-value {
+.dashboard-card strong {
   display: block;
   margin-top: 8px;
   font-size: 2rem;
 }
 
-.stat-description {
+.dashboard-card p {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.progress-section {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 36px;
+  padding: 20px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+}
+
+.progress-info strong {
+  color: var(--text);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-light);
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--success));
 }
 
 .missions-section {
@@ -120,6 +161,7 @@ button {
   border-radius: 999px;
   cursor: pointer;
   font-weight: 700;
+  transition: 0.2s ease;
 }
 
 .primary-button {
@@ -129,7 +171,8 @@ button {
 }
 
 .primary-button:hover {
-  background: #7dd3fc;
+  background: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 .missions-list {
@@ -142,16 +185,16 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 230px;
+  min-height: 240px;
   padding: 22px;
 }
 
-.mission-card h3 {
+.mission-content h3 {
   margin-top: 12px;
   font-size: 1.15rem;
 }
 
-.mission-card p {
+.mission-content p {
   margin-top: 10px;
   color: var(--muted);
 }
@@ -185,6 +228,7 @@ button {
 
 .mission-footer button:hover:not(:disabled) {
   background: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
 .mission-footer button:disabled {
@@ -201,8 +245,8 @@ button {
   color: var(--success);
 }
 
-@media (max-width: 840px) {
-  .stats-grid,
+@media (max-width: 900px) {
+  .dashboard,
   .missions-list {
     grid-template-columns: 1fr;
   }
@@ -213,6 +257,27 @@ button {
   }
 
   .primary-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .app {
+    padding: 24px 14px;
+  }
+
+  .dashboard-card,
+  .progress-section,
+  .mission-card {
+    border-radius: 18px;
+  }
+
+  .mission-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mission-footer button {
     width: 100%;
   }
 }
