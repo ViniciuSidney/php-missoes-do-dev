@@ -47,4 +47,4 @@ php-missoes-do-dev/
 
 Projeto em desenvolvimento.
 
-Versão atual: v0.3.0
+Versão atual: v0.4.0
