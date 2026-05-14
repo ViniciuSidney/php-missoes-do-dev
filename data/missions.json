@@ -1,1 +1,42 @@
-[]
+[
+    {
+        "title": "Estudar variáveis em PHP",
+        "description": "Entender como criar, armazenar e exibir valores usando variáveis.",
+        "category": "PHP Básico",
+        "difficulty": "Fácil",
+        "xp": 25,
+        "status": "pending"
+    },
+    {
+        "title": "Criar um formulário HTML",
+        "description": "Montar um formulário simples que futuramente será enviado para o PHP.",
+        "category": "Formulários",
+        "difficulty": "Média",
+        "xp": 50,
+        "status": "pending"
+    },
+    {
+        "title": "Criar a estrutura inicial",
+        "description": "Preparar pastas, arquivos e documentos principais do projeto.",
+        "category": "Organização",
+        "difficulty": "Fácil",
+        "xp": 25,
+        "status": "done"
+    },
+    {
+        "title": "var_dump",
+        "description": "O que significa?",
+        "category": "PHP",
+        "difficulty": "Fácil",
+        "xp": 25,
+        "status": "pending"
+    },
+    {
+        "title": "== e ===",
+        "description": "Parecido e Exatamente",
+        "category": "PHP",
+        "difficulty": "Fácil",
+        "xp": 25,
+        "status": "pending"
+    }
+]

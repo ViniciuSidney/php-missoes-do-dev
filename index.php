@@ -1,4 +1,34 @@
 <?php
+define("MISSIONS_FILE", __DIR__ . "/data/missions.json");
+
+function loadMissions()
+{
+  if (!file_exists(MISSIONS_FILE)) {
+    return [];
+  }
+
+  $json = file_get_contents(MISSIONS_FILE);
+
+  if ($json === false || trim($json) === "") {
+    return [];
+  }
+
+  $missions = json_decode($json, true);
+
+  if (!is_array($missions)) {
+    return [];
+  }
+
+  return $missions;
+}
+
+function saveMissions($missions)
+{
+  $json = json_encode($missions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+  file_put_contents(MISSIONS_FILE, $json);
+}
+
 function e($value)
 {
   return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -22,35 +52,14 @@ function isValidDifficulty($difficulty)
   return in_array($difficulty, $validDifficulties, true);
 }
 
-$missions = [
-  [
-    "title" => "Estudar variáveis em PHP",
-    "description" => "Entender como criar, armazenar e exibir valores usando variáveis.",
-    "category" => "PHP Básico",
-    "difficulty" => "Fácil",
-    "xp" => 25,
-    "status" => "pending"
-  ],
-  [
-    "title" => "Criar um formulário HTML",
-    "description" => "Montar um formulário simples que futuramente será enviado para o PHP.",
-    "category" => "Formulários",
-    "difficulty" => "Média",
-    "xp" => 50,
-    "status" => "pending"
-  ],
-  [
-    "title" => "Criar a estrutura inicial",
-    "description" => "Preparar pastas, arquivos e documentos principais do projeto.",
-    "category" => "Organização",
-    "difficulty" => "Fácil",
-    "xp" => 25,
-    "status" => "done"
-  ]
-];
+$missions = loadMissions();
 
 $successMessage = "";
 $errorMessage = "";
+
+if (isset($_GET["created"]) && $_GET["created"] === "1") {
+  $successMessage = "Missão criada com sucesso!";
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $title = trim($_POST["title"] ?? "");
@@ -72,7 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       "status" => "pending"
     ];
 
-    $successMessage = "Missão criada com sucesso!";
+    saveMissions($missions);
+
+    header("Location: index.php?created=1");
+    exit;
   }
 }
 
@@ -175,7 +187,7 @@ $levelTitle = "Aprendiz de PHP";
         </button>
       </header>
 
-      <form class="mission-form" method="POST" action="">
+      <form class="mission-form" method="POST" action="index.php">
         <div class="form-grid">
           <label>
             <span>Título da missão</span>
