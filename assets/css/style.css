@@ -21,8 +21,16 @@
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32%),
-    radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 28%),
+    radial-gradient(
+      circle at top left,
+      rgba(56, 189, 248, 0.18),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(34, 197, 94, 0.1),
+      transparent 28%
+    ),
     var(--background);
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
@@ -245,9 +253,92 @@ button {
   color: var(--success);
 }
 
+.feedback {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.feedback-success {
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+}
+
+.feedback-error {
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.1);
+  color: #fca5a5;
+}
+
+.mission-form {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: rgba(17, 24, 39, 0.82);
+  box-shadow: 0 20px 50px var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mission-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.mission-form label span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.mission-form input,
+.mission-form select,
+.mission-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  background: var(--surface-light);
+  color: var(--text);
+  font: inherit;
+}
+
+.mission-form input,
+.mission-form select {
+  height: 46px;
+  padding: 0 14px;
+}
+
+.mission-form textarea {
+  resize: vertical;
+  min-height: 92px;
+  padding: 12px 14px;
+}
+
+.mission-form input::placeholder,
+.mission-form textarea::placeholder {
+  color: #6b7280;
+}
+
+.mission-form input:focus,
+.mission-form select:focus,
+.mission-form textarea:focus {
+  border-color: rgba(56, 189, 248, 0.65);
+}
+
 @media (max-width: 900px) {
   .dashboard,
-  .missions-list {
+  .missions-list,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 

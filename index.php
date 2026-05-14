@@ -4,6 +4,24 @@ function e($value)
   return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
+function getXpByDifficulty($difficulty)
+{
+  $xpByDifficulty = [
+    "Fácil" => 25,
+    "Média" => 50,
+    "Difícil" => 100
+  ];
+
+  return $xpByDifficulty[$difficulty] ?? 25;
+}
+
+function isValidDifficulty($difficulty)
+{
+  $validDifficulties = ["Fácil", "Média", "Difícil"];
+
+  return in_array($difficulty, $validDifficulties, true);
+}
+
 $missions = [
   [
     "title" => "Estudar variáveis em PHP",
@@ -30,6 +48,33 @@ $missions = [
     "status" => "done"
   ]
 ];
+
+$successMessage = "";
+$errorMessage = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  $title = trim($_POST["title"] ?? "");
+  $description = trim($_POST["description"] ?? "");
+  $category = trim($_POST["category"] ?? "");
+  $difficulty = trim($_POST["difficulty"] ?? "");
+
+  if ($title === "" || $description === "" || $category === "" || $difficulty === "") {
+    $errorMessage = "Preencha todos os campos para criar uma missão.";
+  } elseif (!isValidDifficulty($difficulty)) {
+    $errorMessage = "Selecione uma dificuldade válida.";
+  } else {
+    $missions[] = [
+      "title" => $title,
+      "description" => $description,
+      "category" => $category,
+      "difficulty" => $difficulty,
+      "xp" => getXpByDifficulty($difficulty),
+      "status" => "pending"
+    ];
+
+    $successMessage = "Missão criada com sucesso!";
+  }
+}
 
 $totalMissions = count($missions);
 $completedMissions = 0;
@@ -106,6 +151,18 @@ $levelTitle = "Aprendiz de PHP";
       </div>
     </section>
 
+    <?php if ($successMessage !== ""): ?>
+      <div class="feedback feedback-success">
+        <?= e($successMessage) ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if ($errorMessage !== ""): ?>
+      <div class="feedback feedback-error">
+        <?= e($errorMessage) ?>
+      </div>
+    <?php endif; ?>
+
     <section class="missions-section">
       <header class="section-header">
         <div>
@@ -117,6 +174,40 @@ $levelTitle = "Aprendiz de PHP";
           + Nova missão
         </button>
       </header>
+
+      <form class="mission-form" method="POST" action="">
+        <div class="form-grid">
+          <label>
+            <span>Título da missão</span>
+            <input type="text" name="title" placeholder="Ex: Estudar funções em PHP" required>
+          </label>
+
+          <label>
+            <span>Categoria</span>
+            <input type="text" name="category" placeholder="Ex: PHP Básico" required>
+          </label>
+
+          <label>
+            <span>Dificuldade</span>
+            <select name="difficulty" required>
+              <option value="">Selecione</option>
+              <option value="Fácil">Fácil — 25 XP</option>
+              <option value="Média">Média — 50 XP</option>
+              <option value="Difícil">Difícil — 100 XP</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>Descrição</span>
+          <textarea name="description" rows="3" placeholder="Descreva rapidamente o objetivo dessa missão"
+            required></textarea>
+        </label>
+
+        <button class="primary-button" type="submit">
+          Criar missão
+        </button>
+      </form>
 
       <div class="missions-list">
         <?php foreach ($missions as $mission): ?>

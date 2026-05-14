@@ -61,7 +61,8 @@ Permitir que o usuário cadastre missões pela interface.
 - [ ] Receber dados com `POST`
 - [ ] Validar campos básicos
 - [ ] Definir XP com base na dificuldade
-- [ ] Exibir missão cadastrada temporariamente
+- [ ] Adicionar missão temporariamente ao array
+- [ ] Exibir mensagem de sucesso ou erro
 
 ### Resultado esperado
 
