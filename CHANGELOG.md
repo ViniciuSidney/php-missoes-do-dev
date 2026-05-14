@@ -6,6 +6,22 @@ O formato segue uma organização simples por versões.
 
 ---
 
+## [v0.3.0] — Cadastro temporário de missões
+
+### Adicionado
+
+- Formulário de cadastro de missões
+- Recebimento de dados com `POST`
+- Validação básica dos campos
+- Definição automática de XP por dificuldade
+- Exibição temporária da nova missão na lista
+
+### Observação
+
+- As missões cadastradas ainda não são salvas após recarregar a página.
+
+---
+
 ## [v0.2.0] — Listagem com PHP e arrays
 
 ### Adicionado

@@ -57,12 +57,11 @@ Permitir que o usuário cadastre missões pela interface.
 
 ### Etapas
 
-- [ ] Criar formulário de cadastro
-- [ ] Receber dados com `POST`
-- [ ] Validar campos básicos
-- [ ] Definir XP com base na dificuldade
-- [ ] Adicionar missão temporariamente ao array
-- [ ] Exibir mensagem de sucesso ou erro
+- [x] Criar formulário de cadastro
+- [x] Receber dados com `POST`
+- [x] Validar campos básicos
+- [x] Definir XP com base na dificuldade
+- [x] Exibir missão cadastrada temporariamente
 
 ### Resultado esperado
 
