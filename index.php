@@ -1,4 +1,9 @@
 <?php
+function e($value)
+{
+  return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
 $missions = [
   [
     "title" => "Estudar variáveis em PHP",
@@ -47,6 +52,7 @@ $levelTitle = "Aprendiz de PHP";
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
 
@@ -56,6 +62,7 @@ $levelTitle = "Aprendiz de PHP";
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <main class="app">
     <section class="hero">
@@ -71,31 +78,31 @@ $levelTitle = "Aprendiz de PHP";
     <section class="dashboard" aria-label="Resumo de progresso">
       <article class="dashboard-card">
         <span>Nível atual</span>
-         <strong><?= $currentLevel ?></strong>
-         <p><?= $levelTitle ?></p>
+        <strong><?= $currentLevel ?></strong>
+        <p><?= $levelTitle ?></p>
       </article>
 
       <article class="dashboard-card">
         <span>XP acumulado</span>
-<strong><?= $currentXp ?> / <?= $xpToNextLevel ?></strong>
-<p>Progresso até o próximo nível</p>
+        <strong><?= $currentXp ?> / <?= $xpToNextLevel ?></strong>
+        <p>Progresso até o próximo nível</p>
       </article>
 
       <article class="dashboard-card">
         <span>Missões</span>
-<strong><?= $totalMissions ?></strong>
-<p><?= $completedMissions ?> concluída(s)</p>
+        <strong><?= $totalMissions ?></strong>
+        <p><?= $completedMissions ?> concluída(s)</p>
       </article>
     </section>
 
     <section class="progress-section">
       <div class="progress-info">
         <span>Progresso do nível</span>
-<strong><?= round($progressPercentage) ?>%</strong>
+        <strong><?= round($progressPercentage) ?>%</strong>
       </div>
 
       <div class="progress-bar" aria-label="Barra de progresso de XP">
-<div class="progress-fill" style="width: <?= $progressPercentage ?>%;"></div>
+        <div class="progress-fill" style="width: <?= $progressPercentage ?>%;"></div>
       </div>
     </section>
 
@@ -112,42 +119,43 @@ $levelTitle = "Aprendiz de PHP";
       </header>
 
       <div class="missions-list">
-<?php foreach ($missions as $mission): ?>
-  <?php
-    $isDone = $mission["status"] === "done";
-    $cardClass = $isDone ? "mission-card mission-card-done" : "mission-card";
-    $statusLabel = $isDone ? "Concluída" : $mission["difficulty"];
-    $buttonLabel = $isDone ? "Feita" : "Concluir";
-  ?>
+        <?php foreach ($missions as $mission): ?>
+          <?php
+          $isDone = $mission["status"] === "done";
+          $cardClass = $isDone ? "mission-card mission-card-done" : "mission-card";
+          $statusLabel = $isDone ? "Concluída" : $mission["difficulty"];
+          $buttonLabel = $isDone ? "Feita" : "Concluir";
+          ?>
 
-  <article class="<?= $cardClass ?>">
-    <div class="mission-content">
-      <span class="mission-tag">
-        <?= $mission["category"] ?>
-      </span>
+          <article class="<?= $cardClass ?>">
+            <div class="mission-content">
+              <span class="mission-tag">
+                <?= e($mission["category"]) ?>
+              </span>
 
-      <h3>
-        <?= $mission["title"] ?>
-      </h3>
+              <h3>
+                <?= e($mission["title"]) ?>
+              </h3>
 
-      <p>
-        <?= $mission["description"] ?>
-      </p>
-    </div>
+              <p>
+                <?= e($mission["description"]) ?>
+              </p>
+            </div>
 
-    <footer class="mission-footer">
-      <span>
-        <?= $statusLabel ?> · <?= $mission["xp"] ?> XP
-      </span>
+            <footer class="mission-footer">
+              <span>
+                <?= e($statusLabel) ?> · <?= (int) $mission["xp"] ?> XP
+              </span>
 
-      <button type="button" <?= $isDone ? "disabled" : "" ?>>
-        <?= $buttonLabel ?>
-      </button>
-    </footer>
-  </article>
-<?php endforeach; ?>
+              <button type="button" <?= $isDone ? "disabled" : "" ?>>
+                <?= e($buttonLabel) ?>
+              </button>
+            </footer>
+          </article>
+        <?php endforeach; ?>
       </div>
     </section>
   </main>
 </body>
+
 </html>
